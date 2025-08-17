@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "AdvercaseFont";
+  src: url("/fonts/AdvercaseFont-Demo-Regular.otf");
+}
+
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("/fonts/ClashDisplay-Variable.ttf");
+}
+
+@font-face {
+  font-family: "MyriadPro";
+  font-weight: bold;
+  src: url("/fonts/MyriadPro-Regular.otf");
+}
+
+@font-face {
+  font-family: "pixel";
+  font-weight: bold;
+  src: url("/fonts/pixel-script.ttf");
+}
+
+* {
+  font-family: "AdvercaseFont", sans-serif;
+  font-weight: 500;
+}
+
+@theme {
+  --font-sans: "AdvercaseFont", sans-serif;
+  --font-long: "Long", sans-serif;
+  --font-round-bold: "Round Bold", sans-serif;
+  --color-yellow: #8b8030;
+  --color-blue: #004482;
+  --color-pink: #fceff0;
+}
