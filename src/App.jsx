@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import HomePage from './components/HomePage';
 
 gsap.registerPlugin(useGSAP,ScrollTrigger);
 
@@ -14,6 +15,7 @@ const App = () => {
     <div className=''>
         <Navbar />
         <Hero />
+        <HomePage />
     </div>
   )
 }

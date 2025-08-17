@@ -12,21 +12,23 @@
 
 @font-face {
   font-family: "MyriadPro";
-  font-weight: bold;
   src: url("/fonts/MyriadPro-Regular.otf");
 }
 
 @font-face {
   font-family: "pixel-script";
-  font-weight: bold;
   src: url("/fonts/pixel-script.ttf");
 }
 
 @font-face {
   font-family: "Helvetica";
-  font-weight: bold;
   src: url("/fonts/Helvetica.woff");
 }
+
+@font-face {
+    font-family: "ClashDisplay";
+    src: url("/fonts/ClashDisplay-Semibold.otf");
+  }
 
 * {
   /* font-family: "AdvercaseFont", sans-serif; */
@@ -37,6 +39,7 @@
   --font-sans: "AdvercaseFont", sans-serif;
   --font-pixel-script: "pixel-script", sans-serif;
   --font-helvetica: "Helvetica", sans-serif;
+  --font-clash-display: "ClashDisplay", sans-serif;
   --color-yellow: #8b8030;
   --color-blue: #004482;
   --color-pink: #fceff0;
