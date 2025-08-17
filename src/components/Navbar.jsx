@@ -2,24 +2,30 @@ import React, { useState } from "react";
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  
+
   return (
-    <div
-      className="flex justify-between items-center px-4
-        sm:px-12 1g:px-24 x1:px-40 py-4 sticky top-0 z-20
-        backdrop-blur-xl font-medium bg-white "
-    >
+    <div className="navBar">
       <img
-        className="scale-20"
+        className="scale-40"
         src="public/images/main-logo.webp"
         alt="mainlogo"
       />
+
+      <div className="flex items-center gap-2 sm:gap-4">
+        <img
+          src="/images/more.png"
+          alt="close"
+          className="w-8 sm:hidden"
+          onClick={() => setSidebarOpen(true)}
+        />
+      </div>
 
       <div
         className={`sm:text-sm ${
           !sidebarOpen
             ? "max-sm:w-0 overflow-hidden"
-            : "max-sm:w-60 max-sm:pl-10"} 
+            : "max-sm:w-60 max-sm:pl-10"
+        } 
             max-sm:fixed top-0 bottom-0 right-0 max-sm:min-h-screen
             max-sm:h-full max-sm:flex-col max-sm:bg-yellow max-sm:
             max-sm:pt-20 flex sm:items-center gap-5 transition-all`}
@@ -38,18 +44,10 @@ const Navbar = () => {
         </a>
         <a
           href="#ContactUs"
-          className="p-5 rounded-b-lg bg-yellow sm:hover:border-b"
+          className="h-full flex items-center px-6 rounded-none p-5 rounded-b-lg bg-blue sm:hover:bg-yellow text-white"
         >
           Contact Us
         </a>
-      </div>
-      <div className="flex items-center gap-2 sm:gap-4">
-        <img
-            src="/images/more.png"
-            alt="close"
-            className="w-8 sm:hidden"
-            onClick={() => setSidebarOpen(true)}
-        />
       </div>
     </div>
   );
