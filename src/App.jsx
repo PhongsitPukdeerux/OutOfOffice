@@ -10,6 +10,8 @@ import HomePage from './components/HomePage';
 import Audit from './components/Audit';
 import Footer from './components/Footer';
 import ContactForm from './components/ContactForm';
+import About from './components/About';
+import Works from './components/Works';
 
 gsap.registerPlugin(useGSAP,ScrollTrigger);
 
@@ -23,18 +25,14 @@ const MainPage = () => (
 
 const App = () => {
   return (
-    // 1. Wrap your entire application in BrowserRouter
     <BrowserRouter>
       <div className="App">
-        {/* 2. Place Navbar and Footer outside of Routes so they are always visible */}
         <Navbar />
 
-        {/* 3. Define your routes inside the Routes component */}
         <Routes>
-          {/* Route for the main page */}
           <Route path="/" element={<MainPage />} />
-          
-          {/* Route for the Contact Us page */}
+          <Route path="/about" element={<About />} />
+          <Route path="/works" element={<Works />} />
           <Route path="/contact" element={<ContactForm />} />
         </Routes>
 
