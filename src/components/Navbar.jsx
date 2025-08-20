@@ -7,7 +7,7 @@ const Navbar = () => {
     <div className="navBar">
       <img
         className="scale-40"
-        src="public/images/main-logo.webp"
+        src="images/main-logo.webp"
         alt="mainlogo"
       />
 
