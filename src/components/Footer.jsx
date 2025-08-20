@@ -34,7 +34,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <section>
+    <section className="relative">
       <section className="flex flex-col justify-center min-h-[20px] overflow-hidden font-oswald bg-yellow">
         <div className="ticker2 p-1 whitespace-nowrap" data-duration="15">
           <div className="ticker-wrap2 flex gap-8">
@@ -44,7 +44,7 @@ const Footer = () => {
           </div>
         </div>
       </section>
-      <footer className="w-full text-white bg-yellow py-8 px-4 md:px-12 font-sans mt-8">
+      <footer className="w-full text-white bg-yellow py-8 px-4 md:px-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-8 md:space-y-0">
           {/* Left Section: Logo and Copyright */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">

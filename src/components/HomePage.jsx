@@ -16,8 +16,8 @@ const HomePage = () => {
   };
 
   return (
-    <section>
-      <div className="absolute w-[70%] h-full rounded-3xl bg-pink shadow-md inset-shadow-2xl rounded-l-3xl z-[-100]"></div>
+    <section className="relative">
+      <div className="absolute w-[70%] h-full rounded-3xl bg-pink rounded-l-3xl z-[-100]"></div>
       <div className="min-h-screen p-8 flex items-center justify-center font-sans antialiased">
         <div className="w-full max-w-7xl mx-auto rounded-3xl bg-white shadow-2xl inset-shadow-2xl p-6 md:p-12">
           <div className="flex flex-wrap md:flex-row -m-4">
