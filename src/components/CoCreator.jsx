@@ -1,14 +1,5 @@
 import { useState } from "react";
 
-// Define a custom font via a stylesheet
-const customFontStyle = `
-  .first-char {
-    font-family: "pixel-script", sans-serif;
-    font-size: 1.5em; /* Make it larger for emphasis */
-    font-weight: 700;
-  }
-`;
-
 // Sample data for the team members
 const teamMembers = [
   {
@@ -109,7 +100,7 @@ const CoCreator = () => {
   const MemberModal = ({ member, onClose }) => {
     return (
       <div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-opacity-70 backdrop-blur-xl p-4"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-opacity-70 backdrop-blur-md p-4"
         onClick={onClose}
       >
         <div
@@ -198,11 +189,10 @@ const CoCreator = () => {
 
   return (
     <div className="relative items-center">
-      <style>{customFontStyle}</style>
       <div className="min-h-screen bg-pink border-50 border-white text-gray-900 font-sans flex flex-col items-center p-8">
         {/* Main header */}
         <header className="text-left w-full max-w-4xl mb-12">
-          <h1 className="text-5xl md:text-6xl text-blue tracking-tight leading-tight">
+          <h1 className="text-5xl md:text-6xl text-blue  leading-tight">
             <span className="first-char">C</span>o - Creator
           </h1>
         </header>

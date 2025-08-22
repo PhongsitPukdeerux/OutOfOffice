@@ -67,7 +67,7 @@ const Hero = () => {
       <section className="flex flex-col justify-center min-h-[20px] overflow-hidden font-oswald bg-yellow">
         <div className="ticker p-1 whitespace-nowrap" data-duration="15">
           <div className="ticker-wrap flex gap-8">
-            <div className="ticker-text text-white font-clash-display tracking-tight text-[clamp(32px,4vw,60px)]">
+            <div className="ticker-text text-white font-clash-display  text-[clamp(32px,4vw,60px)]">
               Hello, We are Out of Office 🥰
             </div>
           </div>

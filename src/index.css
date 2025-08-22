@@ -52,3 +52,8 @@
     @apply font-helvetica text-lg;
   }
 }
+
+.first-char {
+    font-family: "pixel-script", sans-serif;
+    font-size: 1.5em; /* Make it larger for emphasis */
+  }
