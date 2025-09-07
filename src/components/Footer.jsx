@@ -1,6 +1,7 @@
 import React from "react";
 import gsap from "gsap";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   useEffect(() => {
@@ -32,6 +33,13 @@ const Footer = () => {
       animations.forEach((anim) => anim.play());
     });
   }, []);
+
+  const toTheTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section className="relative">
@@ -154,24 +162,35 @@ const Footer = () => {
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <h1 className="text-xl md:text-2xl font-bold mb-4">Info</h1>
               <nav className="flex flex-col space-y-2">
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="text-sm hover:text-blue transition-colors duration-300"
+                  onClick={toTheTop}
                 >
                   Home
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  to="/about"
                   className="text-sm hover:text-blue transition-colors duration-300"
+                  onClick={toTheTop}
+                >
+                  About
+                </Link>
+
+                <Link
+                  to="/works"
+                  className="text-sm hover:text-blue transition-colors duration-300"
+                  onClick={toTheTop}
                 >
                   Works
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  to="/contact"
                   className="text-sm hover:text-blue transition-colors duration-300"
+                  onClick={toTheTop}
                 >
                   Contact Us
-                </a>
+                </Link>
               </nav>
             </div>
           </div>

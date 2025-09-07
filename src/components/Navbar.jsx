@@ -11,6 +11,11 @@ const Navbar = () => {
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
+    
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
   };
 
   useEffect(() => {
@@ -31,7 +36,9 @@ const Navbar = () => {
   }, [lastScrollY]);
 
   // A helper function to check if a link is active
-  const isActive = (path) => location.pathname === path;
+  const isActive = (path) => {
+    location.pathname === path;
+  };
 
   return (
     <div
