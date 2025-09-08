@@ -2,6 +2,7 @@ import React from 'react'
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
@@ -13,7 +14,7 @@ import ContactForm from './components/ContactForm';
 import About from './components/About';
 import Works from './components/Works';
 
-gsap.registerPlugin(useGSAP,ScrollTrigger);
+gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
 
 const MainPage = () => (
   <>
