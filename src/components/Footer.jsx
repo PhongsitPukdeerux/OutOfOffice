@@ -13,6 +13,9 @@ const Footer = () => {
     // Duplicate text for seamless loop
     inner.append(content.cloneNode(true));
     inner.append(content.cloneNode(true));
+    inner.append(content.cloneNode(true));
+    inner.append(content.cloneNode(true));
+    inner.append(content.cloneNode(true));
 
     const animations = [];
     inner.querySelectorAll(".ticker-text2").forEach((element) => {
