@@ -1,11 +1,57 @@
 import React from 'react'
+import gsap from "gsap";
+import { useEffect } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerEffect(ScrollTrigger);
+const animateFrom = (elem, direction) => {
+    direction = direction || 1;
+    var x = 0,
+        y = direction * 100;
+    elem.style.transform = "translate(" + x + "px, " + y + "px)";
+    elem.style.opacity = "0";
+    gsap.fromTo(
+        elem,
+        { x: x, y: y, autoAlpha: 0 },
+        {
+            duration: 1.25,
+            x: 0,
+            y: 0,
+            autoAlpha: 1,
+            ease: "expo",
+            overwrite: "auto",
+        }
+    );
+};
+
+const hide = (elem) => {
+    gsap.set(elem, { autoAlpha: 0 });
+};
 
 const Branding = () => {
+    useEffect(() => {
+        gsap.utils.toArray(".gs_reveal").forEach(function (elem) {
+            hide(elem);
+            ScrollTrigger.create({
+                trigger: elem,
+                // markers: true,
+                onEnter: function () {
+                    animateFrom(elem);
+                },
+                onEnterBack: function () {
+                    animateFrom(elem, -1);
+                },
+                onLeave: function () {
+                    hide(elem);
+                }, // assure that the element is hidden when scrolled into view
+            });
+        });
+    }, []);
   return (
     <div className="flex flex-col bg-blue md:flex-row items-center justify-center p-6">
       
       <div className="w-full max-w-5xl  text-white rounded-2xl overflow-hidden md:flex">
-        <div className="w-full md:w-7/12 p-8 flex flex-col justify-center">
+        <div className="w-full gs_reveal md:w-7/12 p-8 flex flex-col justify-center">
           <h1 className="text-4xl font-clash-display mb-4  leading-tight">
             <span className="first-char">B</span>randing
           </h1>
@@ -23,7 +69,7 @@ const Branding = () => {
           
         </div>
 
-        <div className="w-full md:w-5/12 flex-shrink-0">
+        <div className="w-full gs_reveal md:w-5/12 flex-shrink-0">
           <img
             src="/animated/Branding400400.gif"
             alt="Branding GIF"

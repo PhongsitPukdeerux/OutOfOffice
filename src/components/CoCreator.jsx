@@ -1,4 +1,32 @@
 import { useState } from "react";
+import gsap from "gsap";
+import { useEffect } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerEffect(ScrollTrigger);
+const animateFrom = (elem, direction) => {
+    direction = direction || 1;
+    var x = 0,
+        y = direction * 100;
+    elem.style.transform = "translate(" + x + "px, " + y + "px)";
+    elem.style.opacity = "0";
+    gsap.fromTo(
+        elem,
+        { x: x, y: y, autoAlpha: 0 },
+        {
+            duration: 1.25,
+            x: 0,
+            y: 0,
+            autoAlpha: 1,
+            ease: "expo",
+            overwrite: "auto",
+        }
+    );
+};
+
+const hide = (elem) => {
+    gsap.set(elem, { autoAlpha: 0 });
+};
 
 // Sample data for the team members
 const teamMembers = [
@@ -61,6 +89,24 @@ const CoCreator = () => {
   const MemberCard = ({ member }) => {
     const [isHovered, setIsHovered] = useState(false);
 
+    useEffect(() => {
+        gsap.utils.toArray(".gs_reveal").forEach(function (elem) {
+            hide(elem);
+            ScrollTrigger.create({
+                trigger: elem,
+                // markers: true,
+                onEnter: function () {
+                    animateFrom(elem);
+                },
+                onEnterBack: function () {
+                    animateFrom(elem, -1);
+                },
+                onLeave: function () {
+                    hide(elem);
+                }, // assure that the element is hidden when scrolled into view
+            });
+        });
+    }, []);
     return (
       <div
         className="relative flex flex-col items-center bg-pink rounded-2xl p-6 transform transition-transform duration-300 hover:scale-105 cursor-pointer overflow-hidden"
@@ -72,10 +118,10 @@ const CoCreator = () => {
         <img
           src={member.image}
           alt={member.name}
-          className="w-48 h-48 bg-yellow rounded-3xl object-cover shadow-md"
+          className="gs_reveal w-48 h-48 bg-yellow rounded-3xl object-cover shadow-md"
         />
         {/* Name and position */}
-        <div className="mt-6 text-center">
+        <div className="mt-6 gs_reveal text-center">
           <h2 className="text-xl font-bold text-blue">
             <span className="first-char">{member.name.charAt(0)}</span>
             {member.name.substring(1)}
@@ -100,7 +146,7 @@ const CoCreator = () => {
   const MemberModal = ({ member, onClose }) => {
     return (
       <div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-opacity-70 backdrop-blur-md p-4"
+        className="fixed gs_reveal inset-0 z-50 flex items-center justify-center bg-opacity-70 backdrop-blur-md p-4"
         onClick={onClose}
       >
         <div
@@ -192,7 +238,7 @@ const CoCreator = () => {
       <div className="min-h-screen bg-pink border-50 border-white text-gray-900 font-sans flex flex-col items-center p-8">
         {/* Main header */}
         <header className="text-left w-full max-w-4xl mb-12">
-          <h1 className="text-5xl md:text-6xl text-blue  leading-tight">
+          <h1 className="gs_reveal text-5xl md:text-6xl text-blue  leading-tight">
             <span className="first-char">C</span>o - Creator
           </h1>
         </header>

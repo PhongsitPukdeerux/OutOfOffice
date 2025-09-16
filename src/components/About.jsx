@@ -2,11 +2,80 @@ import React from "react";
 import CoCreator from "./CoCreator";
 import Branding from "./Branding";
 import SocialMedia from "./SocialMedia";
+import gsap from "gsap";
+import { useEffect } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
+gsap.registerEffect(ScrollTrigger);
+const animateFrom = (elem, direction) => {
+    direction = direction || 1;
+    var x = 0,
+        y = direction * 100;
+    elem.style.transform = "translate(" + x + "px, " + y + "px)";
+    elem.style.opacity = "0";
+    gsap.fromTo(
+        elem,
+        { x: x, y: y, autoAlpha: 0 },
+        {
+            duration: 1.25,
+            x: 0,
+            y: 0,
+            autoAlpha: 1,
+            ease: "expo",
+            overwrite: "auto",
+        }
+    );
+};
+
+const hide = (elem) => {
+    gsap.set(elem, { autoAlpha: 0 });
+};
 const About = () => {
+    useEffect(() => {
+        
+        const transfrom = document.querySelector(".gs_transfrom");
+        transfrom.addEventListener("mouseenter", () => {
+            console.log('mouse in')
+            gsap.to(".color_change", {
+                backgroundColor: "#fceff0",
+                scale: 1.1
+            });
+            
+            gsap.to(".gs_color", {
+                color: "#004482",
+                scale: 1.1,
+            });
+        });
+        transfrom.addEventListener("mouseleave", () => {
+            gsap.to(".color_change", {
+                backgroundColor: "#8b8030",
+                scale: 1
+            });
+
+            gsap.to(".gs_color", {
+                color: "#fceff0",
+            });
+        });
+        gsap.utils.toArray(".gs_reveal").forEach(function (elem) {
+            hide(elem);
+            ScrollTrigger.create({
+                trigger: elem,
+                // markers: true,
+                onEnter: function () {
+                    animateFrom(elem);
+                },
+                onEnterBack: function () {
+                    animateFrom(elem, -1);
+                },
+                onLeave: function () {
+                    hide(elem);
+                }, // assure that the element is hidden when scrolled into view
+            });
+        });
+    }, []);
   return (
     <section>
-      <div className="bg-blue py-20 ">
+      <div className="bg-blue py-20">
         <div className="relative w-full max-w-7xl mx-auto rounded-2xl overflow-hidden shadow-lg ms:max-w-5xl">
           {/* Image */}
           <img
@@ -19,7 +88,7 @@ const About = () => {
           <div className="absolute inset-0 bg-black/40"></div>
 
           {/* Text inside image */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+          <div className="gs_reveal absolute inset-0 flex flex-col items-center justify-center text-center px-6">
             <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
               Third Space for <br />
               <span className="font-pixel-script">P</span>roductivity
@@ -36,7 +105,7 @@ const About = () => {
       <Branding />
       <SocialMedia />
 
-      <div className="flex items-center justify-center mx-10">
+      <div className="gs_reveal flex items-center justify-center mx-10">
         <div className="w-full bg-white p-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-8 sm:gap-12">
             {/* Left Column: Text Content */}
@@ -56,13 +125,13 @@ const About = () => {
             {/* Right Column: Button with Arrow */}
             {/* w-full for full width on mobile, sm:w-1/2 for 50% on sm and up. */}
             <div className="flex-shrink-0 w-[70%] sm: flex justify-center sm:justify-end">
-              <div className="w-[85%] bg-yellow p-8 rounded-2xl flex sm:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-8">
+              <div className="w-[85%] gs_transfrom color_change bg-yellow p-8 rounded-2xl flex sm:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-8">
                 {/* Text content */}
                 <div className="text-center md:text-left">
-                  <h1 className="font-clash-display text-5xl text-white mb-2 tracking-wider">
+                  <h1 className="gs_color font-clash-display text-5xl text-white mb-2 tracking-wider">
                     Book a Call
                   </h1>
-                  <span className="text-md font-helvetica text-white">
+                  <span className="gs_color text-md font-helvetica text-white">
                     Discover more opportunities for your brand
                   </span>
                 </div>
