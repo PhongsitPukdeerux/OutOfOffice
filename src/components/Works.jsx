@@ -1,4 +1,33 @@
 import React from "react";
+import gsap from "gsap";
+import { useEffect } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerEffect(ScrollTrigger);
+const animateFrom = (elem, direction) => {
+    direction = direction || 1;
+    var x = 0,
+        y = direction * 100;
+    elem.style.transform = "translate(" + x + "px, " + y + "px)";
+    elem.style.opacity = "0";
+    gsap.fromTo(
+        elem,
+        { x: x, y: y, autoAlpha: 0 },
+        {
+            duration: 1.25,
+            x: 0,
+            y: 0,
+            autoAlpha: 1,
+            ease: "expo",
+            overwrite: "auto",
+        }
+    );
+};
+
+const hide = (elem) => {
+    gsap.set(elem, { autoAlpha: 0 });
+};
+
 
 // You will need to replace these image URLs with your own.
 const imageUrl1 = "/images/branding.jpg";
@@ -24,10 +53,52 @@ const worksData = [
 ];
 
 const Works = () => {
+    
+    useEffect(() => {
+        
+        const transfrom = document.querySelector(".gs_transfrom");
+        transfrom.addEventListener("mouseenter", () => {
+            gsap.to(".color_change", {
+                backgroundColor: "#8b8030",
+                scale: 1.1
+            });
+            
+            gsap.to(".gs_color", {
+                color: "#fceff0",
+                scale: 1.1,
+            });
+        });
+        transfrom.addEventListener("mouseleave", () => {
+            gsap.to(".color_change", {
+                backgroundColor: "#fceff0",
+                scale: 1
+            });
+
+            gsap.to(".gs_color", {
+                color: "#004482",
+            });
+        });
+        gsap.utils.toArray(".gs_reveal").forEach(function (elem) {
+            hide(elem);
+            ScrollTrigger.create({
+                trigger: elem,
+                // markers: true,
+                onEnter: function () {
+                    animateFrom(elem);
+                },
+                onEnterBack: function () {
+                    animateFrom(elem, -1);
+                },
+                onLeave: function () {
+                    hide(elem);
+                }, // assure that the element is hidden when scrolled into view
+            });
+        });
+    }, []);
   return (
     <section className="mb-20 mx-16 mt-10">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row gap-8 justify-center">
+        <div className="flex gs_reveal flex-col md:flex-row gap-8 justify-center">
           {worksData.map((work) => (
             <div
               key={work.id}
@@ -68,23 +139,23 @@ const Works = () => {
             {/* w-full for full width on mobile, sm:w-1/2 for 50% on sm and up. */}
             <div className="flex flex-col items-center sm:items-start text-center sm:text-left w-full sm:w-1/2">
               {/* Main heading */}
-              <h1 className="text-3xl sm:text-6xl lg:text-7xl font-clash-display text-blue mb-2">
+              <h1 className="gs_reveal text-3xl sm:text-6xl lg:text-7xl font-clash-display text-blue mb-2">
                 Want to see more?
               </h1>
               {/* Subheading */}
-              <h3 className="text-lg font-helvetica sm:text-xl text-blue">
+              <h3 className="gs_reveal text-lg font-helvetica sm:text-xl text-blue">
                 Uncover our previous agency works and find out how we run things
               </h3>
             </div>
 
             {/* Right Column: Button with Arrow */}
             {/* w-full for full width on mobile, sm:w-1/2 for 50% on sm and up. */}
-            <div className="flex-shrink-0 w-[60%] sm: flex justify-center sm:justify-end">
-              <div className="w-[80%] bg-yellow p-8 rounded-2xl flex items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-8">
+            <div className="flex justify-center">
+                <div className="gs_transfrom color_change w-[80%] bg-yellow p-8 rounded-2xl flex items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-8">
                 {/* Text content */}
-                <div className="text-center md:text-left">
-                  <h1 className="font-clash-display text-4xl text-white mb-2 leading-tight">
-                  Get Full Portfolio & Service Guide
+                <div className="gs_reveal text-center md:text-left">
+                  <h1 className="gs_color font-clash-display text-4xl text-white mb-2 leading-tight">
+                    Get Full Portfolio & Service Guide
                   </h1>
                 </div>
 
