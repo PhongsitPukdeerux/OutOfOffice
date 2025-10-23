@@ -84,7 +84,7 @@ const Footer = () => {
               {/* Social Media Buttons */}
               <div className="flex space-x-4 mb-4">
                 <a
-                  href="https://www.facebook.com"
+                  href="https://www.facebook.com/ooocollective.ph"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-blue hover:text-white hover:bg-blue transition-colors duration-300"
@@ -103,7 +103,7 @@ const Footer = () => {
                   </svg>
                 </a>
                 <a
-                  href="https://www.instagram.com"
+                  href="https://www.instagram.com/_ooocollective/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-pink-600 hover:text-white hover:bg-pink-600 transition-colors duration-300"
@@ -133,7 +133,7 @@ const Footer = () => {
                 <button
                   className="bg-transparent border-2 font-semibold py-2 px-4 rounded-lg flex items-center justify-center space-x-2 hover:scale-105 cursor-pointer"
                   onClick={() =>
-                    alert("Live Chat functionality would go here.")
+                    alert("WhatsApp Not Support right now")
                   }
                 >
                   <svg
@@ -149,12 +149,12 @@ const Footer = () => {
                       fill="white"
                     />
                   </svg>
-                  <span>Live Chat</span>
+                  <span>Contack Us</span>
                 </button>
               </div>
 
               <a
-                href="hello@ooocollective.net"
+                href="mailto:hello@ooocollective.net"
                 className="text-sm hover:text-blue transition-colors duration-300"
               >
                 Email: hello@ooocollective.net

@@ -72,6 +72,11 @@ const About = () => {
                 }, // assure that the element is hidden when scrolled into view
             });
         });
+        
+        const bookCallButton = document.querySelector(".bookCallButton");
+        bookCallButton.addEventListener("click", () => {
+            window.open('https://calendar.app.google/Akm1z6mobVE7AYHQA', '_blank');
+        });
     }, []);
   return (
     <section>
@@ -124,8 +129,8 @@ const About = () => {
 
             {/* Right Column: Button with Arrow */}
             {/* w-full for full width on mobile, sm:w-1/2 for 50% on sm and up. */}
-            <div className="flex-shrink-0 w-[70%] sm: flex justify-center sm:justify-end">
-              <div className="w-[85%] gs_transfrom color_change bg-yellow p-8 rounded-2xl flex sm:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-8">
+            <div className="flex-shrink-0 w-[70%] sm: flex justify-center sm:justify-end hover:cursor-pointer">
+              <div className="bookCallButton w-[85%] gs_transfrom color_change bg-yellow p-8 rounded-2xl flex sm:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-8">
                 {/* Text content */}
                 <div className="text-center md:text-left">
                   <h1 className="gs_color font-clash-display text-5xl text-white mb-2 tracking-wider">

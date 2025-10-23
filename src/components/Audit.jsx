@@ -42,7 +42,6 @@ const Audit = () => {
     //     });
     // });
     useEffect(() => {
-        
         const transfrom = document.querySelector(".gs_transfrom");
         transfrom.addEventListener("mouseenter", () => {
             gsap.to(".color_change", {
@@ -81,13 +80,19 @@ const Audit = () => {
                 }, // assure that the element is hidden when scrolled into view
             });
         });
+        
+        const freeAuditButton = document.querySelector(".freeAuditButton");
+        
+        freeAuditButton.addEventListener("click", () => {
+            window.open('https://forms.gle/P8WgJMDt5d9NUKhA6', '_blank');
+        });
     }, []);
     return (
         // The new outer div that sets the overall width to 90% and centers the content
         <div className="w-full mx-auto min-h-screen bg-white p-8 font-sans">
 
             {/* Top box */}
-            <div className="flex justify-center">
+            <div className="freeAuditButton flex justify-center hover:cursor-pointer">
                 <div className="gs_transfrom color_change w-[80%] bg-pink p-8 rounded-2xl flex items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-8">
                     {/* Text content */}
                     <div className="gs_reveal text-center md:text-left">
