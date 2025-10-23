@@ -123,36 +123,40 @@ const Audit = () => {
             <div className="flex flex-col md:flex-row w-full md:w-full lg:w-full space-y-8 md:space-y-0 md:space-x-8">
                 {/* Left box */}
                 <div className="gs_reveal w-full md:w-1/2 p-6 md:p-8 bg-white bg-blur rounded-2xl border-2 border-dashed border-blue text-blue">
-                    <h2 className="font-clash-display text-3xl mb-5 mt-10">
-                        What’s in it?
-                    </h2>
-                    <p className="font-helvetica text-sm ">
-                        1. An overview of what makes up your brand
-                    </p>
-                    <p className="font-helvetica text-sm ">
-                        2. Insights on opportunities you can take advantage of
-                    </p>
-                    <p className="font-helvetica text-sm ">
-                        3. Analysis of your current digital footprint
-                    </p>
+                    <div className="my-7">
+                        <h2 className="font-clash-display text-3xl mb-5">
+                            What’s in it?
+                        </h2>
+                        <p className="font-helvetica text-sm ">
+                            1. An overview of what makes up your brand
+                        </p>
+                        <p className="font-helvetica text-sm ">
+                            2. Insights on opportunities you can take advantage of
+                        </p>
+                        <p className="font-helvetica text-sm ">
+                            3. Analysis of your current digital footprint
+                        </p>
+                    </div>
                 </div>
 
                 {/* Right box */}
                 <div className="gs_reveal w-full md:w-1/2 p-6 md:p-8 bg-white rounded-2xl border-2 border-dashed border-blue text-blue">
-                    <h2 className="font-clash-display text-3xl mb-5 mt-10">
-                        This is for you if:
-                    </h2>
-                    <p className="font-helvetica text-sm ">
-                        1. You are planning to give your brand a refresh
-                    </p>
+                    <div className="my-7">
+                        <h2 className="font-clash-display text-3xl mb-5">
+                            This is for you if:
+                        </h2>
+                        <p className="font-helvetica text-sm ">
+                            1. You are planning to give your brand a refresh
+                        </p>
 
-                    <p className="font-helvetica text-sm ">
-                        2. You want your brand to communicate better
-                    </p>
+                        <p className="font-helvetica text-sm ">
+                            2. You want your brand to communicate better
+                        </p>
 
-                    <p className="font-helvetica text-sm ">
-                        3. You want to know what can work better for your brand
-                    </p>
+                        <p className="font-helvetica text-sm ">
+                            3. You want to know what can work better for your brand
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
